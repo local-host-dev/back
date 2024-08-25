@@ -5,9 +5,9 @@ app.use(express.json());
 
 app.post("/bfhl", (req, res) => {
   const data = req.body.data || [];
-  const userId = "john_doe_17091999"; // Replace with dynamic generation if required
-  const email = "john@xyz.com"; // Replace with actual email
-  const rollNumber = "ABCD123"; // Replace with actual roll number
+  const userId = "john_doe_17091999";
+  const email = "john@xyz.com";
+  const rollNumber = "ABCD123";
 
   const numbers = data.filter((item) => !isNaN(item));
   const alphabets = data.filter((item) => /^[A-Za-z]+$/.test(item));
@@ -31,10 +31,4 @@ app.post("/bfhl", (req, res) => {
   });
 });
 
-app.get("/bfhl", (req, res) => {
-  res.json({ operation_code: 1 });
-});
-
-app.listen(3000, () => {
-  console.log("Server running on port 3000");
-});
+module.exports = app;
