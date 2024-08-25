@@ -1,7 +1,9 @@
 const express = require("express");
+const cors = require("cors");
 const app = express();
 
 app.use(express.json());
+app.use(cors());
 
 app.post("/bfhl", (req, res) => {
   const data = req.body.data || [];
@@ -31,4 +33,7 @@ app.post("/bfhl", (req, res) => {
   });
 });
 
-module.exports = app;
+const port = 3001;
+app.listen(port, () => {
+  console.log(`Backend server running at http://localhost:${port}`);
+});
